@@ -14696,7 +14696,7 @@
             "currentEnvironmentId": "e40b6662-f639-43d6-beed-36f6c6623fb7",
             "promotedFrom": null,
             "createdAt": "2024-10-17T13:46:00.739Z",
-            "updatedAt": "2024-10-18T07:44:40.570Z"
+            "updatedAt": "2024-10-18T07:48:22.454Z"
           },
           "components": [
             {
@@ -19114,6 +19114,52 @@
                   "updatedAt": "2024-10-18T07:44:40.541Z"
                 }
               ]
+            },
+            {
+              "id": "32e340b4-9adb-45f1-bdfc-7d5104e91c3d",
+              "name": "button2",
+              "type": "Button",
+              "pageId": "4cc57705-28e5-44fc-aa63-a2e4660f41ce",
+              "parent": null,
+              "properties": {},
+              "general": null,
+              "styles": {},
+              "generalStyles": null,
+              "displayPreferences": {
+                "showOnDesktop": {
+                  "value": "{{true}}"
+                },
+                "showOnMobile": {
+                  "value": "{{false}}"
+                }
+              },
+              "validation": {},
+              "createdAt": "2024-10-18T07:48:22.430Z",
+              "updatedAt": "2024-10-18T07:48:22.430Z",
+              "layouts": [
+                {
+                  "id": "9bb0c865-fa99-4711-a82d-9d1cbb81e408",
+                  "type": "desktop",
+                  "top": 830,
+                  "left": 25,
+                  "width": 3,
+                  "height": 30,
+                  "componentId": "32e340b4-9adb-45f1-bdfc-7d5104e91c3d",
+                  "dimensionUnit": "count",
+                  "updatedAt": "2024-10-18T07:48:22.430Z"
+                },
+                {
+                  "id": "a9c38923-f54c-4909-9d7c-142928e90eab",
+                  "type": "mobile",
+                  "top": 830,
+                  "left": 25,
+                  "width": 3,
+                  "height": 30,
+                  "componentId": "32e340b4-9adb-45f1-bdfc-7d5104e91c3d",
+                  "dimensionUnit": "count",
+                  "updatedAt": "2024-10-18T07:48:22.430Z"
+                }
+              ]
             }
           ],
           "pages": [
@@ -19229,6 +19275,201 @@
           ],
           "dataQueries": [
             {
+              "id": "f4bb29b4-4a4f-4353-9118-172c823254f8",
+              "name": "retention",
+              "options": {
+                "operation": "list_rows",
+                "transformationLanguage": "javascript",
+                "enableTransformation": true,
+                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
+                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
+                "join_table": {
+                  "joins": [
+                    {
+                      "id": 1699395684529,
+                      "conditions": {
+                        "operator": "AND",
+                        "conditionsList": [
+                          {
+                            "operator": "=",
+                            "leftField": {
+                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                            }
+                          }
+                        ]
+                      },
+                      "joinType": "INNER"
+                    }
+                  ],
+                  "from": {
+                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
+                    "type": "Table"
+                  },
+                  "fields": [
+                    {
+                      "name": "id",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "redirected_from",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "referred_users_count",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_active_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "signed_up_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "has_subscribed",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_referred_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    }
+                  ]
+                },
+                "list_rows": {
+                  "where_filters": {
+                    "f25396df-2259-4f2e-9388-6a70ecd832d6": {
+                      "column": "last_active_on",
+                      "operator": "gte",
+                      "value": "{{moment().startOf(components.retentionDropdown.value).valueOf()}}",
+                      "id": "f25396df-2259-4f2e-9388-6a70ecd832d6"
+                    }
+                  },
+                  "order_filters": {
+                    "af0eb52a-dbee-4fd2-a933-07327b827074": {
+                      "column": "signed_up_on",
+                      "order": "asc",
+                      "id": "af0eb52a-dbee-4fd2-a933-07327b827074"
+                    }
+                  }
+                },
+                "transformation": "var chartData = [];\n\nif (data.length > 0) {\n  var preStart = 0;\n\n  while (\n    data.length > 0 &&\n    moment(parseInt(data[0].signed_up_on)).isBefore(\n      moment().startOf(components.retentionDropdown.value)\n    )\n  ) {\n    preStart += 1;\n    data.shift();\n  }\n\n  function getDates(type, date, format) {\n    const startDate = moment(date).startOf(type);\n    const endDate = moment(startDate).endOf(type);\n    const jump = { month: \"day\", quarter: \"month\", year: \"month\" }[type];\n    var dateWiseCount = {};\n    var dates = [];\n\n    dates.push(startDate.format(format));\n    dateWiseCount[startDate.format(format)] = preStart ?? 0;\n    startDate.add(1, jump);\n\n    while (startDate.isSameOrBefore(endDate)) {\n      dates.push(startDate.format(format));\n      dateWiseCount[startDate.format(format)] = 0;\n      startDate.add(1, jump);\n    }\n\n    return { dates, dateWiseCount };\n  }\n\n  const type = components.retentionDropdown.value;\n  const date = moment().startOf(components.retentionDropdown.value).valueOf();\n  const format = { month: \"Do MMM\", quarter: \"MMM\", year: \"MMM\" }[type];\n  const { dates, dateWiseCount } = getDates(type, date, format);\n\n  data.forEach((row) => {\n    const startDate = moment(parseInt(row.signed_up_on)).format(format);\n    const endDate = moment(row.last_active_on).format(format);\n    var startIndex = dates.indexOf(startDate);\n    var endIndex = dates.indexOf(endDate);\n    const tempDates = dates.slice(startIndex, endIndex + 1);\n    tempDates.forEach((date) => {\n      dateWiseCount[date] += 1;\n    });\n  });\n\n  chartData = dates.map((date) => ({ x: date, y: dateWiseCount[date] }));\n}\n\nreturn { chartData };",
+                "runOnPageLoad": true
+              },
+              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
+              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
+              "createdAt": "2024-10-17T13:46:01.326Z",
+              "updatedAt": "2024-10-18T07:47:13.784Z"
+            },
+            {
+              "id": "2140e836-98ed-4244-810d-71cdefc56094",
+              "name": "activationFunnel",
+              "options": {
+                "operation": "list_rows",
+                "transformationLanguage": "javascript",
+                "enableTransformation": true,
+                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
+                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
+                "join_table": {
+                  "joins": [
+                    {
+                      "id": 1699297707119,
+                      "conditions": {
+                        "operator": "AND",
+                        "conditionsList": [
+                          {
+                            "operator": "=",
+                            "leftField": {
+                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                            }
+                          }
+                        ]
+                      },
+                      "joinType": "INNER"
+                    }
+                  ],
+                  "from": {
+                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
+                    "type": "Table"
+                  },
+                  "fields": [
+                    {
+                      "name": "id",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "signed_up_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "redirected_from",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "referred_users_count",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_active_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "subscription_ends_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    }
+                  ]
+                },
+                "list_rows": {
+                  "where_filters": {
+                    "f911a7b1-1058-4aad-9c81-ca5c31d4d55b": {
+                      "column": "signed_up_on",
+                      "operator": "gte",
+                      "value": "{{components.activationFunnelDropdown.value == \"*\" ? moment().subtract(5,\"years\").valueOf() : moment().startOf(components.activationFunnelDropdown.value).valueOf()}}",
+                      "id": "f911a7b1-1058-4aad-9c81-ca5c31d4d55b"
+                    }
+                  }
+                },
+                "transformation": "var totalSignups = 0;\nvar totalUsersCreatedApps = 0;\nvar totalUsersReleasedApps = 0;\n\ndata.forEach((row) => {\n  totalSignups += 1;\n  if (row.first_app_created_on != null) {\n    totalUsersCreatedApps += 1;\n  }\n  if (row.first_app_released_on != null) {\n    totalUsersReleasedApps += 1;\n  }\n});\n\nreturn { totalSignups, totalUsersCreatedApps, totalUsersReleasedApps };",
+                "runOnPageLoad": true
+              },
+              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
+              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
+              "createdAt": "2024-10-17T13:46:01.326Z",
+              "updatedAt": "2024-10-18T07:47:13.905Z"
+            },
+            {
               "id": "a1ad0c50-0884-4b07-9ca5-cb0e52551a93",
               "name": "revenue",
               "options": {
@@ -19339,294 +19580,7 @@
               "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
               "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
               "createdAt": "2024-10-17T13:46:01.326Z",
-              "updatedAt": "2024-10-18T07:44:20.115Z"
-            },
-            {
-              "id": "f4bb29b4-4a4f-4353-9118-172c823254f8",
-              "name": "retention",
-              "options": {
-                "operation": "list_rows",
-                "transformationLanguage": "javascript",
-                "enableTransformation": true,
-                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
-                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
-                "join_table": {
-                  "joins": [
-                    {
-                      "id": 1699395684529,
-                      "conditions": {
-                        "operator": "AND",
-                        "conditionsList": [
-                          {
-                            "operator": "=",
-                            "leftField": {
-                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                            }
-                          }
-                        ]
-                      },
-                      "joinType": "INNER"
-                    }
-                  ],
-                  "from": {
-                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
-                    "type": "Table"
-                  },
-                  "fields": [
-                    {
-                      "name": "id",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "redirected_from",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "referred_users_count",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_active_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "signed_up_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "has_subscribed",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_referred_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    }
-                  ]
-                },
-                "list_rows": {
-                  "where_filters": {
-                    "f25396df-2259-4f2e-9388-6a70ecd832d6": {
-                      "column": "last_active_on",
-                      "operator": "gte",
-                      "value": "{{moment().startOf(components.retentionDropdown.value).valueOf()}}",
-                      "id": "f25396df-2259-4f2e-9388-6a70ecd832d6"
-                    }
-                  },
-                  "order_filters": {
-                    "af0eb52a-dbee-4fd2-a933-07327b827074": {
-                      "column": "signed_up_on",
-                      "order": "asc",
-                      "id": "af0eb52a-dbee-4fd2-a933-07327b827074"
-                    }
-                  }
-                },
-                "transformation": "var chartData = [];\n\nif (data.length > 0) {\n  var preStart = 0;\n\n  while (\n    data.length > 0 &&\n    moment(parseInt(data[0].signed_up_on)).isBefore(\n      moment().startOf(components.retentionDropdown.value)\n    )\n  ) {\n    preStart += 1;\n    data.shift();\n  }\n\n  function getDates(type, date, format) {\n    const startDate = moment(date).startOf(type);\n    const endDate = moment(startDate).endOf(type);\n    const jump = { month: \"day\", quarter: \"month\", year: \"month\" }[type];\n    var dateWiseCount = {};\n    var dates = [];\n\n    dates.push(startDate.format(format));\n    dateWiseCount[startDate.format(format)] = preStart ?? 0;\n    startDate.add(1, jump);\n\n    while (startDate.isSameOrBefore(endDate)) {\n      dates.push(startDate.format(format));\n      dateWiseCount[startDate.format(format)] = 0;\n      startDate.add(1, jump);\n    }\n\n    return { dates, dateWiseCount };\n  }\n\n  const type = components.retentionDropdown.value;\n  const date = moment().startOf(components.retentionDropdown.value).valueOf();\n  const format = { month: \"Do MMM\", quarter: \"MMM\", year: \"MMM\" }[type];\n  const { dates, dateWiseCount } = getDates(type, date, format);\n\n  data.forEach((row) => {\n    const startDate = moment(parseInt(row.signed_up_on)).format(format);\n    const endDate = moment(row.last_active_on).format(format);\n    var startIndex = dates.indexOf(startDate);\n    var endIndex = dates.indexOf(endDate);\n    const tempDates = dates.slice(startIndex, endIndex + 1);\n    tempDates.forEach((date) => {\n      dateWiseCount[date] += 1;\n    });\n  });\n\n  chartData = dates.map((date) => ({ x: date, y: dateWiseCount[date] }));\n}\n\nreturn { chartData };",
-                "runOnPageLoad": true
-              },
-              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
-              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
-              "createdAt": "2024-10-17T13:46:01.326Z",
-              "updatedAt": "2024-10-18T07:44:20.510Z"
-            },
-            {
-              "id": "2140e836-98ed-4244-810d-71cdefc56094",
-              "name": "activationFunnel",
-              "options": {
-                "operation": "list_rows",
-                "transformationLanguage": "javascript",
-                "enableTransformation": true,
-                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
-                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
-                "join_table": {
-                  "joins": [
-                    {
-                      "id": 1699297707119,
-                      "conditions": {
-                        "operator": "AND",
-                        "conditionsList": [
-                          {
-                            "operator": "=",
-                            "leftField": {
-                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                            }
-                          }
-                        ]
-                      },
-                      "joinType": "INNER"
-                    }
-                  ],
-                  "from": {
-                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
-                    "type": "Table"
-                  },
-                  "fields": [
-                    {
-                      "name": "id",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "signed_up_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "redirected_from",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "referred_users_count",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_active_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "subscription_ends_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    }
-                  ]
-                },
-                "list_rows": {
-                  "where_filters": {
-                    "f911a7b1-1058-4aad-9c81-ca5c31d4d55b": {
-                      "column": "signed_up_on",
-                      "operator": "gte",
-                      "value": "{{components.activationFunnelDropdown.value == \"*\" ? moment().subtract(5,\"years\").valueOf() : moment().startOf(components.activationFunnelDropdown.value).valueOf()}}",
-                      "id": "f911a7b1-1058-4aad-9c81-ca5c31d4d55b"
-                    }
-                  }
-                },
-                "transformation": "var totalSignups = 0;\nvar totalUsersCreatedApps = 0;\nvar totalUsersReleasedApps = 0;\n\ndata.forEach((row) => {\n  totalSignups += 1;\n  if (row.first_app_created_on != null) {\n    totalUsersCreatedApps += 1;\n  }\n  if (row.first_app_released_on != null) {\n    totalUsersReleasedApps += 1;\n  }\n});\n\nreturn { totalSignups, totalUsersCreatedApps, totalUsersReleasedApps };",
-                "runOnPageLoad": true
-              },
-              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
-              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
-              "createdAt": "2024-10-17T13:46:01.326Z",
-              "updatedAt": "2024-10-18T07:44:22.324Z"
-            },
-            {
-              "id": "6c4ddeb6-c2fe-4236-a11c-d7e667779d84",
-              "name": "acquisition",
-              "options": {
-                "operation": "list_rows",
-                "transformationLanguage": "javascript",
-                "enableTransformation": true,
-                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
-                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
-                "join_table": {
-                  "joins": [
-                    {
-                      "id": 1699299197913,
-                      "conditions": {
-                        "operator": "AND",
-                        "conditionsList": [
-                          {
-                            "operator": "=",
-                            "leftField": {
-                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                            }
-                          }
-                        ]
-                      },
-                      "joinType": "INNER"
-                    }
-                  ],
-                  "from": {
-                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
-                    "type": "Table"
-                  },
-                  "fields": [
-                    {
-                      "name": "id",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "redirected_from",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "referred_users_count",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "signed_up_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "first_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_created_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_app_released_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "last_active_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    },
-                    {
-                      "name": "subscription_ends_on",
-                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
-                    }
-                  ]
-                },
-                "list_rows": {
-                  "where_filters": {
-                    "b9d5f73e-5bbf-41da-85ed-a356c48f22f9": {
-                      "column": "signed_up_on",
-                      "operator": "gte",
-                      "value": "{{(components?.acquisitionDropdown?.value ?? \"week\") == \"*\" ? moment().subtract(5,\"years\").valueOf() : parseInt(moment().startOf(components?.acquisitionDropdown?.value ?? \"week\").valueOf())}}",
-                      "id": "b9d5f73e-5bbf-41da-85ed-a356c48f22f9"
-                    }
-                  }
-                },
-                "transformation": "var totalSignups = 0;\nvar signupByChannel = {};\nvar totalSubscribed = 0;\n\ndata.forEach((row) => {\n  totalSignups += 1;\n\n  if (!(row.redirected_from in signupByChannel)) {\n    signupByChannel[row.redirected_from] = 0;\n  }\n  signupByChannel[row.redirected_from] += 1;\n\n  if (\n    (components.acquisitionDropdown.value == \"*\" &&\n      row.subscription_starts_on != null) ||\n    (components.acquisitionDropdown.value != \"*\" &&\n      moment(row.subscription_starts_on).isSameOrAfter(\n        moment().startOf(components.acquisitionDropdown.value).valueOf()\n      ))\n  ) {\n    totalSubscribed += 1;\n  }\n});\n\nreturn { totalSignups, signupByChannel, totalSubscribed };",
-                "runOnPageLoad": true
-              },
-              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
-              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
-              "createdAt": "2024-10-17T13:46:01.326Z",
-              "updatedAt": "2024-10-18T07:44:22.900Z"
+              "updatedAt": "2024-10-18T07:47:13.209Z"
             },
             {
               "id": "0c38ba4d-b898-4ec2-839d-4224ed8cd80d",
@@ -19718,7 +19672,99 @@
               "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
               "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
               "createdAt": "2024-10-17T13:46:01.326Z",
-              "updatedAt": "2024-10-18T07:44:20.941Z"
+              "updatedAt": "2024-10-18T07:47:13.794Z"
+            },
+            {
+              "id": "6c4ddeb6-c2fe-4236-a11c-d7e667779d84",
+              "name": "acquisition",
+              "options": {
+                "operation": "list_rows",
+                "transformationLanguage": "javascript",
+                "enableTransformation": true,
+                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
+                "table_id": "b584f0b9-c469-4aa8-9b51-f36e60729ff4",
+                "join_table": {
+                  "joins": [
+                    {
+                      "id": 1699299197913,
+                      "conditions": {
+                        "operator": "AND",
+                        "conditionsList": [
+                          {
+                            "operator": "=",
+                            "leftField": {
+                              "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                            }
+                          }
+                        ]
+                      },
+                      "joinType": "INNER"
+                    }
+                  ],
+                  "from": {
+                    "name": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9",
+                    "type": "Table"
+                  },
+                  "fields": [
+                    {
+                      "name": "id",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "redirected_from",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "referred_users_count",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "signed_up_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "first_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_created_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_app_released_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "last_active_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    },
+                    {
+                      "name": "subscription_ends_on",
+                      "table": "5bdc260f-e3fa-429a-b9dc-d08c9956e8c9"
+                    }
+                  ]
+                },
+                "list_rows": {
+                  "where_filters": {
+                    "b9d5f73e-5bbf-41da-85ed-a356c48f22f9": {
+                      "column": "signed_up_on",
+                      "operator": "gte",
+                      "value": "{{(components?.acquisitionDropdown?.value ?? \"week\") == \"*\" ? moment().subtract(5,\"years\").valueOf() : parseInt(moment().startOf(components?.acquisitionDropdown?.value ?? \"week\").valueOf())}}",
+                      "id": "b9d5f73e-5bbf-41da-85ed-a356c48f22f9"
+                    }
+                  }
+                },
+                "transformation": "var totalSignups = 0;\nvar signupByChannel = {};\nvar totalSubscribed = 0;\n\ndata.forEach((row) => {\n  totalSignups += 1;\n\n  if (!(row.redirected_from in signupByChannel)) {\n    signupByChannel[row.redirected_from] = 0;\n  }\n  signupByChannel[row.redirected_from] += 1;\n\n  if (\n    (components.acquisitionDropdown.value == \"*\" &&\n      row.subscription_starts_on != null) ||\n    (components.acquisitionDropdown.value != \"*\" &&\n      moment(row.subscription_starts_on).isSameOrAfter(\n        moment().startOf(components.acquisitionDropdown.value).valueOf()\n      ))\n  ) {\n    totalSubscribed += 1;\n  }\n});\n\nreturn { totalSignups, signupByChannel, totalSubscribed };",
+                "runOnPageLoad": true
+              },
+              "dataSourceId": "12441e38-53ff-420c-9697-21814fc04a55",
+              "appVersionId": "1b4b1632-c26a-4962-8a84-e564a04bb477",
+              "createdAt": "2024-10-17T13:46:01.326Z",
+              "updatedAt": "2024-10-18T07:47:13.984Z"
             },
             {
               "id": "9f8673eb-bc8a-48e0-9dfb-f41642605ec2",
@@ -34307,7 +34353,7 @@
               "currentEnvironmentId": "e40b6662-f639-43d6-beed-36f6c6623fb7",
               "promotedFrom": null,
               "createdAt": "2024-10-17T13:46:00.739Z",
-              "updatedAt": "2024-10-18T07:44:40.570Z"
+              "updatedAt": "2024-10-18T07:48:22.454Z"
             }
           ],
           "appEnvironments": [
