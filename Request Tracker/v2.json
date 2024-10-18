@@ -165,7 +165,7 @@
             "currentEnvironmentId": "e40b6662-f639-43d6-beed-36f6c6623fb7",
             "promotedFrom": null,
             "createdAt": "2024-10-18T08:13:34.244Z",
-            "updatedAt": "2024-10-18T08:13:34.206Z"
+            "updatedAt": "2024-10-18T08:15:20.923Z"
           },
           "components": [
             {
@@ -1725,6 +1725,52 @@
                   "updatedAt": "2024-10-18T08:13:34.206Z"
                 }
               ]
+            },
+            {
+              "id": "1a6013ae-0063-4f8d-aa48-6e0b99613639",
+              "name": "button5",
+              "type": "Button",
+              "pageId": "43176763-4f18-41e0-b291-10bd396e50cc",
+              "parent": null,
+              "properties": {},
+              "general": null,
+              "styles": {},
+              "generalStyles": null,
+              "displayPreferences": {
+                "showOnDesktop": {
+                  "value": "{{true}}"
+                },
+                "showOnMobile": {
+                  "value": "{{false}}"
+                }
+              },
+              "validation": {},
+              "createdAt": "2024-10-18T08:15:20.901Z",
+              "updatedAt": "2024-10-18T08:15:20.901Z",
+              "layouts": [
+                {
+                  "id": "ab321695-b658-4f92-aa52-20d276d776ed",
+                  "type": "desktop",
+                  "top": 1000,
+                  "left": 18,
+                  "width": 3,
+                  "height": 30,
+                  "componentId": "1a6013ae-0063-4f8d-aa48-6e0b99613639",
+                  "dimensionUnit": "count",
+                  "updatedAt": "2024-10-18T08:15:20.901Z"
+                },
+                {
+                  "id": "e5760ae9-dbde-4ba4-befb-943f4f0b672a",
+                  "type": "mobile",
+                  "top": 1000,
+                  "left": 18,
+                  "width": 3,
+                  "height": 30,
+                  "componentId": "1a6013ae-0063-4f8d-aa48-6e0b99613639",
+                  "dimensionUnit": "count",
+                  "updatedAt": "2024-10-18T08:15:20.901Z"
+                }
+              ]
             }
           ],
           "pages": [
@@ -1984,6 +2030,93 @@
           ],
           "dataQueries": [
             {
+              "id": "b4036d37-bf50-41dd-81dc-4fabd59b2a12",
+              "name": "bugStats",
+              "options": {
+                "operation": "list_rows",
+                "transformationLanguage": "javascript",
+                "enableTransformation": true,
+                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
+                "table_id": "c3308995-0fb0-4c3c-aa89-f42eef1670ab",
+                "join_table": {
+                  "joins": [
+                    {
+                      "id": 1707820164591,
+                      "conditions": {
+                        "operator": "AND",
+                        "conditionsList": [
+                          {
+                            "operator": "=",
+                            "leftField": {
+                              "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                            }
+                          }
+                        ]
+                      },
+                      "joinType": "INNER"
+                    }
+                  ],
+                  "from": {
+                    "name": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13",
+                    "type": "Table"
+                  },
+                  "fields": [
+                    {
+                      "name": "id",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "name",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "description",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "severity",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "status",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "reported_by",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "assigned_to",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "created_at",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    },
+                    {
+                      "name": "updated_at",
+                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
+                    }
+                  ]
+                },
+                "list_rows": {
+                  "order_filters": {
+                    "3497acd5-1a46-4f38-899d-676a9ed29915": {
+                      "column": "created_at",
+                      "order": "asc",
+                      "id": "3497acd5-1a46-4f38-899d-676a9ed29915"
+                    }
+                  }
+                },
+                "transformation": "const totalBugsCount = data.length;\nconst resolvedBugsCount = data.filter((row) => row.status == \"resolved\").length;\n\nreturn {totalBugsCount, resolvedBugsCount, allBugs: data};",
+                "runOnPageLoad": true
+              },
+              "dataSourceId": "8959d0d8-6b28-44e8-8751-37a38465deab",
+              "appVersionId": "a6d1d8d9-0f47-4c63-b22d-d7808590acac",
+              "createdAt": "2024-10-18T08:13:34.206Z",
+              "updatedAt": "2024-10-18T08:13:41.797Z"
+            },
+            {
               "id": "eab3010b-1a91-4d12-94d5-d6d300714b9b",
               "name": "listBugs",
               "options": {
@@ -2083,7 +2216,7 @@
               "dataSourceId": "8959d0d8-6b28-44e8-8751-37a38465deab",
               "appVersionId": "a6d1d8d9-0f47-4c63-b22d-d7808590acac",
               "createdAt": "2024-10-18T08:13:34.206Z",
-              "updatedAt": "2024-10-18T08:13:34.206Z"
+              "updatedAt": "2024-10-18T08:13:41.991Z"
             },
             {
               "id": "ee27f60a-fde4-457a-a32f-e141930422e7",
@@ -2321,93 +2454,6 @@
               "appVersionId": "a6d1d8d9-0f47-4c63-b22d-d7808590acac",
               "createdAt": "2024-10-18T08:13:34.206Z",
               "updatedAt": "2024-10-18T08:13:34.206Z"
-            },
-            {
-              "id": "b4036d37-bf50-41dd-81dc-4fabd59b2a12",
-              "name": "bugStats",
-              "options": {
-                "operation": "list_rows",
-                "transformationLanguage": "javascript",
-                "enableTransformation": true,
-                "organization_id": "37f82c34-2c9c-4f42-9336-c61472fd5ef8",
-                "table_id": "c3308995-0fb0-4c3c-aa89-f42eef1670ab",
-                "join_table": {
-                  "joins": [
-                    {
-                      "id": 1707820164591,
-                      "conditions": {
-                        "operator": "AND",
-                        "conditionsList": [
-                          {
-                            "operator": "=",
-                            "leftField": {
-                              "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                            }
-                          }
-                        ]
-                      },
-                      "joinType": "INNER"
-                    }
-                  ],
-                  "from": {
-                    "name": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13",
-                    "type": "Table"
-                  },
-                  "fields": [
-                    {
-                      "name": "id",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "name",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "description",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "severity",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "status",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "reported_by",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "assigned_to",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "created_at",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    },
-                    {
-                      "name": "updated_at",
-                      "table": "0768da7c-0fb9-41dc-893f-c8cc2cd00b13"
-                    }
-                  ]
-                },
-                "list_rows": {
-                  "order_filters": {
-                    "3497acd5-1a46-4f38-899d-676a9ed29915": {
-                      "column": "created_at",
-                      "order": "asc",
-                      "id": "3497acd5-1a46-4f38-899d-676a9ed29915"
-                    }
-                  }
-                },
-                "transformation": "const totalBugsCount = data.length;\nconst resolvedBugsCount = data.filter((row) => row.status == \"resolved\").length;\n\nreturn {totalBugsCount, resolvedBugsCount, allBugs: data};",
-                "runOnPageLoad": true
-              },
-              "dataSourceId": "8959d0d8-6b28-44e8-8751-37a38465deab",
-              "appVersionId": "a6d1d8d9-0f47-4c63-b22d-d7808590acac",
-              "createdAt": "2024-10-18T08:13:34.206Z",
-              "updatedAt": "2024-10-18T08:13:34.206Z"
             }
           ],
           "dataSources": [
@@ -2492,7 +2538,7 @@
               "currentEnvironmentId": "e40b6662-f639-43d6-beed-36f6c6623fb7",
               "promotedFrom": null,
               "createdAt": "2024-10-18T08:13:34.244Z",
-              "updatedAt": "2024-10-18T08:13:34.206Z"
+              "updatedAt": "2024-10-18T08:15:20.923Z"
             }
           ],
           "appEnvironments": [
