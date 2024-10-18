@@ -9,10 +9,10 @@
   },
   "eadf6412-ca46-47af-81b6-7f4126654109": {
     "gitAppName": "Request Tracker",
-    "lastCommitMessage": " v1 Version of app Request Tracker promoted from development to staging",
-    "gitVersionId": "a65904bb-3e9e-424d-8901-f1ae011dd0cc",
-    "lastpushDate": "2024-10-18T08:06:16.353Z",
-    "gitVersionName": "v1",
+    "lastCommitMessage": "Version v2 Created of app Request Tracker",
+    "gitVersionId": "a6d1d8d9-0f47-4c63-b22d-d7808590acac",
+    "lastpushDate": "2024-10-18T08:13:40.998Z",
+    "gitVersionName": "v2",
     "lastCommitUser": "Duc Dao"
   }
 }
